@@ -22,5 +22,66 @@ namespace XMLTest2
 
         //新券别名字
         public static string newCash = "";
+
+        /// <summary>
+        /// 泛用券别信息路径
+        /// </summary>
+        public static string cashInfoPath = "";
+
+        /// <summary>
+        /// 券别核对启动状态
+        /// </summary>
+        public static bool start = false;
+    }
+
+    /// <summary>
+    /// 泛用券别箱捆包信息类
+    /// </summary>
+    class CashInfo
+    {
+        private string type;
+        private string box;
+        private string bundle;
+        private string bag;
+
+        public string Type
+        {
+            get{ return type;}
+            set {type = value;}
+        }
+
+        public string Box
+        {
+            get{return box;}
+            set{box = value;}
+        }
+
+        public string Bundle
+        {
+            get{return bundle;}
+            set{bundle = value;}
+        }
+
+        public string Bag
+        {
+            get{return bag;}
+            set{bag = value;}
+        }
+
+        public CashInfo()
+        {
+            this.Type = "";
+            this.Box = "";
+            this.Bundle = "";
+            this.Bag = "";
+        }
+
+        public CashInfo(string type,string box,string bundle,string bag)
+        {
+            this.Type = type;
+            this.Box = box;
+            this.Bundle = bundle;
+            this.Bag = bag;
+        }
     }
 }

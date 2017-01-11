@@ -1,1 +1,9 @@
 D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.exe.config
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.exe
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.pdb
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csprojResolveAssemblyReference.cache
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form1.resources
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Properties.Resources.resources
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csproj.GenerateResource.Cache
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.exe
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.pdb
