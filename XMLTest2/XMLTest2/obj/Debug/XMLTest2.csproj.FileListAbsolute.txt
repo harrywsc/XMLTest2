@@ -7,3 +7,14 @@ D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Properties.Resources.
 D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csproj.GenerateResource.Cache
 D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.exe
 D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.pdb
+D:\github\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.exe.config
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.exe
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.pdb
+D:\github\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.exe
+D:\github\XMLTest2\XMLTest2\XMLTest2\bin\Debug\XMLTest2.pdb
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csprojResolveAssemblyReference.cache
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form1.resources
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Properties.Resources.resources
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csproj.GenerateResource.Cache
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form2.resources
+D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form3.resources

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace XMLTest2
 {
@@ -32,6 +33,9 @@ namespace XMLTest2
         /// 券别核对启动状态
         /// </summary>
         public static bool start = false;
+
+
+        
     }
 
     /// <summary>
@@ -83,5 +87,115 @@ namespace XMLTest2
             this.Bundle = bundle;
             this.Bag = bag;
         }
+    }
+
+    class XMLCashInfo
+    {
+        private string type;
+        private string label;
+        private string version;
+        private string box;
+        private string bundle;
+        private string bag;
+
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
+        }
+
+        public string Label
+        {
+            get
+            {
+                return label;
+            }
+
+            set
+            {
+                label = value;
+            }
+        }
+
+        public string Version
+        {
+            get
+            {
+                return version;
+            }
+
+            set
+            {
+                version = value;
+            }
+        }
+
+        public string Box
+        {
+            get
+            {
+                return box;
+            }
+
+            set
+            {
+                box = value;
+            }
+        }
+
+        public string Bundle
+        {
+            get
+            {
+                return bundle;
+            }
+
+            set
+            {
+                bundle = value;
+            }
+        }
+
+        public string Bag
+        {
+            get
+            {
+                return bag;
+            }
+
+            set
+            {
+                bag = value;
+            }
+        }
+        public XMLCashInfo()
+        {
+            Type = "";
+            Label = "";
+            Version = "";
+            Box = "";
+            Bundle = "";
+            Bag = "";
+        }
+        public XMLCashInfo(string type,string lable,string version,string box,string bundle,string bag)
+        {
+            Type = type;
+            Label = lable;
+            Version = version;
+            Box = box;
+            Bundle = bundle;
+            Bag = bag;
+        }
+        //public override string ToString()
+        //{
+        //    return Type;
+        //}
     }
 }

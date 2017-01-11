@@ -42,11 +42,10 @@ namespace XMLTest2
         }
 
         //读取数据文件，返回券别名称
-        public string[] ReadData(string path)
+        public void ReadData(string path,string[] cashData)
         {
             StreamReader sr = new StreamReader(path, Encoding.Default);
-            String line;
-            string[] cashData = new string[1000];
+            String line; 
             int i = 0;
             while ((line = sr.ReadLine()) != null)
             {
@@ -54,31 +53,8 @@ namespace XMLTest2
                 cashData[i+1] = line.ToString().Split('|')[1];
                 i = i + 2;
             }
-            return cashData;
         }
-
-        //读取XML配置文件，返回券别名称
-        public string[] ReadXML(string path)
-        {
-            string[] xmlData = new string[1000];
-            XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;//忽略文档里面的注释
-            XmlReader reader = XmlReader.Create(path, settings);
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(reader);
-            XmlNode xn = xmlDoc.SelectSingleNode("cashlist");
-            XmlNodeList xnl = xn.ChildNodes;
-            int i = 0;
-            foreach (XmlNode xn1 in xnl)
-            {
-                XmlElement xe = (XmlElement)xn1;// 将节点转换为元素，便于得到节点的属性值
-                XmlNodeList xnl0 = xe.ChildNodes;
-                xmlData[i] = xnl0.Item(0).InnerText;
-                i++;
-            }
-            reader.Close();
-            return xmlData;
-        }
+        
 
         /// <summary>
         /// 查找泛用券别信息，导入箱捆包数据
@@ -88,6 +64,23 @@ namespace XMLTest2
         /// <param name="cashInfo"></param>
         private bool GetCashInfo(string path,string cashType, CashInfo cashInfo)
         {
+            if (-1 !=cashType.IndexOf("币"))
+            {
+                if (-1 != cashType.IndexOf("10元")) { cashType = "硬10元"; }
+                if (-1 != cashType.IndexOf("5元")) { cashType = "硬5元"; }
+                if (-1 != cashType.IndexOf("1元")) { cashType = "硬1元"; }
+            }
+            if (-1 != cashType.IndexOf("钞"))
+            {
+                if (-1 != cashType.IndexOf("100元")) { cashType = "纸100元"; }
+                if (-1 != cashType.IndexOf("50元")) { cashType = "纸50元"; }
+                if (-1 != cashType.IndexOf("20元")) { cashType = "纸20元"; }
+                if (-1 != cashType.IndexOf("10元")) { cashType = "纸10元"; }
+                if (-1 != cashType.IndexOf("5元")) { cashType = "纸5元"; }
+                if (-1 != cashType.IndexOf("2元")) { cashType = "纸2元"; }
+                if (-1 != cashType.IndexOf("1元")) { cashType = "纸1元"; }
+            }
+
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.IgnoreComments = true;//忽略文档里面的注释
             XmlReader reader = XmlReader.Create(path, settings);
@@ -114,7 +107,31 @@ namespace XMLTest2
             return false;
         }
 
-        
+        /// <summary>
+        /// 读取XML配置文件，返回券别名称
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public void ReadXML(string path,string[] xmlData)
+        {
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;//忽略文档里面的注释
+            XmlReader reader = XmlReader.Create(path, settings);
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(reader);
+            XmlNode xn = xmlDoc.SelectSingleNode("cashlist");
+            XmlNodeList xnl = xn.ChildNodes;
+            int i = 0;
+            foreach (XmlNode xn1 in xnl)
+            {
+                XmlElement xe = (XmlElement)xn1;// 将节点转换为元素，便于得到节点的属性值
+                XmlNodeList xnl0 = xe.ChildNodes;
+                xmlData[i] = xnl0.Item(0).InnerText;
+                i++;
+            }
+            reader.Close();
+        }
+
         /// <summary>
         /// 添加券别信息到配置文件中。
         /// </summary>
@@ -215,13 +232,13 @@ namespace XMLTest2
                 //导入券别数据
                 if ("" != Util.dataPath)
                 {
-                    cashData = ReadData(Util.dataPath);
+                    ReadData(Util.dataPath, cashData);
                 }
 
                 //导入xml数据
                 if ("" != Util.xmlPath)
                 {
-                    xmlData = ReadXML(Util.xmlPath);
+                    ReadXML(Util.xmlPath, xmlData);
                 }
 
                 //校验数据
@@ -268,5 +285,30 @@ namespace XMLTest2
         {
             Util.start = false;
         }
+
+        private void Btn_AddCashInfo_Click(object sender, EventArgs e)
+        {
+            if (!CheckPath())
+            {
+                MessageBox.Show("请选择正确的文件!");
+                return;
+            }
+            BackupXML(Util.xmlPath);
+            Form2 fm2 = new Form2();
+            fm2.ShowDialog();
+        }
+
+        private void Btn_UpdateCashInfo_Click(object sender, EventArgs e)
+        {
+            if (!CheckPath())
+            {
+                MessageBox.Show("请选择正确的文件!");
+                return;
+            }
+            BackupXML(Util.xmlPath);
+            Form3 fm3 = new Form3();
+            fm3.ShowDialog();
+        }
+
     }
 }

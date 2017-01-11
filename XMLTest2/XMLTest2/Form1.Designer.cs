@@ -37,6 +37,8 @@
             this.Btn_Stop = new System.Windows.Forms.Button();
             this.Btn_SelectCashInfo = new System.Windows.Forms.Button();
             this.lb_CashInfoDir = new System.Windows.Forms.Label();
+            this.Btn_AddCashInfo = new System.Windows.Forms.Button();
+            this.Btn_UpdateCashInfo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_SelectData
@@ -79,7 +81,7 @@
             // 
             // Btn_Start
             // 
-            this.Btn_Start.Location = new System.Drawing.Point(166, 252);
+            this.Btn_Start.Location = new System.Drawing.Point(75, 252);
             this.Btn_Start.Name = "Btn_Start";
             this.Btn_Start.Size = new System.Drawing.Size(75, 23);
             this.Btn_Start.TabIndex = 4;
@@ -89,7 +91,7 @@
             // 
             // Btn_Stop
             // 
-            this.Btn_Stop.Location = new System.Drawing.Point(278, 252);
+            this.Btn_Stop.Location = new System.Drawing.Point(179, 252);
             this.Btn_Stop.Name = "Btn_Stop";
             this.Btn_Stop.Size = new System.Drawing.Size(75, 23);
             this.Btn_Stop.TabIndex = 5;
@@ -116,11 +118,33 @@
             this.lb_CashInfoDir.TabIndex = 7;
             this.lb_CashInfoDir.Text = "券别基本信息文件：";
             // 
+            // Btn_AddCashInfo
+            // 
+            this.Btn_AddCashInfo.Location = new System.Drawing.Point(295, 252);
+            this.Btn_AddCashInfo.Name = "Btn_AddCashInfo";
+            this.Btn_AddCashInfo.Size = new System.Drawing.Size(114, 23);
+            this.Btn_AddCashInfo.TabIndex = 8;
+            this.Btn_AddCashInfo.Text = "手动添加券别信息";
+            this.Btn_AddCashInfo.UseVisualStyleBackColor = true;
+            this.Btn_AddCashInfo.Click += new System.EventHandler(this.Btn_AddCashInfo_Click);
+            // 
+            // Btn_UpdateCashInfo
+            // 
+            this.Btn_UpdateCashInfo.Location = new System.Drawing.Point(437, 252);
+            this.Btn_UpdateCashInfo.Name = "Btn_UpdateCashInfo";
+            this.Btn_UpdateCashInfo.Size = new System.Drawing.Size(92, 23);
+            this.Btn_UpdateCashInfo.TabIndex = 9;
+            this.Btn_UpdateCashInfo.Text = "修改券别信息";
+            this.Btn_UpdateCashInfo.UseVisualStyleBackColor = true;
+            this.Btn_UpdateCashInfo.Click += new System.EventHandler(this.Btn_UpdateCashInfo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 304);
+            this.Controls.Add(this.Btn_UpdateCashInfo);
+            this.Controls.Add(this.Btn_AddCashInfo);
             this.Controls.Add(this.lb_CashInfoDir);
             this.Controls.Add(this.Btn_SelectCashInfo);
             this.Controls.Add(this.Btn_Stop);
@@ -147,6 +171,8 @@
         private System.Windows.Forms.Button Btn_Stop;
         private System.Windows.Forms.Button Btn_SelectCashInfo;
         private System.Windows.Forms.Label lb_CashInfoDir;
+        private System.Windows.Forms.Button Btn_AddCashInfo;
+        private System.Windows.Forms.Button Btn_UpdateCashInfo;
     }
 }
 
