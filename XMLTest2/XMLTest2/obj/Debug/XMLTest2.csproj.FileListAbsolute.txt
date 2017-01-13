@@ -18,3 +18,5 @@ D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Properties.Resources.res
 D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.csproj.GenerateResource.Cache
 D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form2.resources
 D:\github\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form3.resources
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form2.resources
+D:\GithubPro\XMLTest2\XMLTest2\XMLTest2\obj\Debug\XMLTest2.Form3.resources

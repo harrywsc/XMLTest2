@@ -49,6 +49,7 @@
             this.cb_Cash.Name = "cb_Cash";
             this.cb_Cash.Size = new System.Drawing.Size(177, 20);
             this.cb_Cash.TabIndex = 0;
+            this.cb_Cash.SelectedIndexChanged += new System.EventHandler(this.cb_Cash_SelectedIndexChanged);
             // 
             // lb_bag
             // 
@@ -131,6 +132,7 @@
             this.Btn_UpdateCashInfo.TabIndex = 25;
             this.Btn_UpdateCashInfo.Text = "修改";
             this.Btn_UpdateCashInfo.UseVisualStyleBackColor = true;
+            this.Btn_UpdateCashInfo.Click += new System.EventHandler(this.Btn_UpdateCashInfo_Click);
             // 
             // Form3
             // 
