@@ -34,8 +34,10 @@ namespace XMLTest2
         /// </summary>
         public static bool start = false;
 
-
-        
+        /// <summary>
+        /// 运行过程中暂停，新增券别
+        /// </summary>
+        public static bool pause = false;
     }
 
     /// <summary>

@@ -44,14 +44,24 @@ namespace XMLTest2
         //读取数据文件，返回券别名称
         public void ReadData(string path,string[] cashData)
         {
-            StreamReader sr = new StreamReader(path, Encoding.Default);
-            String line; 
-            int i = 0;
-            while ((line = sr.ReadLine()) != null)
+            try
             {
-                cashData[i] = line.ToString().Split('|')[0];
-                cashData[i+1] = line.ToString().Split('|')[1];
-                i = i + 2;
+                using (StreamReader sr = new StreamReader(path, Encoding.Default))
+                {
+                    String line;
+                    int i = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        cashData[i] = line.ToString().Split('|')[0];
+                        cashData[i + 1] = line.ToString().Split('|')[1];
+                        i = i + 2;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("出现异常：" + e);
+                Btn_Stop.PerformClick();           
             }
         }
         
@@ -103,7 +113,6 @@ namespace XMLTest2
                 }
             }
             reader.Close();
-            Util.start = false;
             return false;
         }
 
@@ -143,7 +152,12 @@ namespace XMLTest2
             CashInfo cashInfo = new CashInfo();
             if (!GetCashInfo(Util.cashInfoPath, cashType, cashInfo))
             {
-                MessageBox.Show("没找到" + cashType + "券别包装信息，请核对券别包装。");
+                Util.pause = true;
+
+                MessageBox.Show("没找到‘" + cashType + "’券别包装信息，请核对券别包装,手动添加信息。");                
+                Util.newCash = cashType;
+                Form2 fm2 = new Form2();
+                fm2.ShowDialog();
                 return;
             }
 
@@ -215,55 +229,20 @@ namespace XMLTest2
         }
 
         private void Btn_Start_Click(object sender, EventArgs e)
-        {
+        {            
             if (!CheckPath())
             {
                 MessageBox.Show("请选择正确的文件!");
                 return;
             }
             BackupXML(Util.xmlPath);
+            Btn_AddCashInfo.Enabled = false;
+            Btn_UpdateCashInfo.Enabled = false;
+            Btn_Stop.Enabled = true;
             Util.start = true;
-            if (Util.start)
-            {
-                //定义券别数据
-                string[] cashData = new string[1000];
-                //定义xml数据
-                string[] xmlData = new string[1000];
-                //导入券别数据
-                if ("" != Util.dataPath)
-                {
-                    ReadData(Util.dataPath, cashData);
-                }
-
-                //导入xml数据
-                if ("" != Util.xmlPath)
-                {
-                    ReadXML(Util.xmlPath, xmlData);
-                }
-
-                //校验数据
-                for (int i = 0; i < 1000; i+=2)
-                {
-                    if (cashData[i] == null)
-                    {
-                        break;
-                    }
-                    for (int j = 0; j < 1000; j++)
-                    {
-                        if (xmlData[j] == null)
-                        {
-                            //录入新数据                        
-                            AddXML(Util.xmlPath, cashData[i],cashData[i+1]);
-                            break;
-                        }
-                        if (cashData[i] == xmlData[j])
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-
+            Start_Check();
+            timer1.Enabled = true;
+            Btn_Start.Enabled = false;
         }
 
         private void Btn_SelectCashInfo_Click(object sender, EventArgs e)
@@ -284,6 +263,12 @@ namespace XMLTest2
         private void Btn_Stop_Click(object sender, EventArgs e)
         {
             Util.start = false;
+            Util.pause = false;
+            Btn_Stop.Enabled = false;
+            timer1.Enabled = false;
+            Btn_Start.Enabled = true;
+            Btn_AddCashInfo.Enabled = true;
+            Btn_UpdateCashInfo.Enabled = true;
         }
 
         private void Btn_AddCashInfo_Click(object sender, EventArgs e)
@@ -310,5 +295,60 @@ namespace XMLTest2
             fm3.ShowDialog();
         }
 
+        /// <summary>
+        /// 启动计时器，30秒核对一次券别信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Start_Check();
+        }
+
+
+
+        private void Start_Check()
+        {
+            if (Util.start && (!Util.pause))
+            {
+                //定义券别数据
+                string[] cashData = new string[1000];
+                //定义xml数据
+                string[] xmlData = new string[1000];
+                //导入券别数据
+                if ("" != Util.dataPath)
+                {
+                    ReadData(Util.dataPath, cashData);
+                }
+
+                //导入xml数据
+                if ("" != Util.xmlPath)
+                {
+                    ReadXML(Util.xmlPath, xmlData);
+                }
+
+                //校验数据
+                for (int i = 0; i < 1000; i += 2)
+                {
+                    if (cashData[i] == null)
+                    {
+                        break;
+                    }
+                    for (int j = 0; j < 1000; j++)
+                    {
+                        if (xmlData[j] == null)
+                        {
+                            //录入新数据                        
+                            AddXML(Util.xmlPath, cashData[i], cashData[i + 1]);
+                            break;
+                        }
+                        if (cashData[i] == xmlData[j])
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

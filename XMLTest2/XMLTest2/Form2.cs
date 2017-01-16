@@ -16,6 +16,10 @@ namespace XMLTest2
         public Form2()
         {
             InitializeComponent();
+            if (Util.pause)
+            {
+                tb_type.Text = Util.newCash;
+            }
         }
 
         private void btn_addXML_Click(object sender, EventArgs e)
@@ -62,6 +66,14 @@ namespace XMLTest2
             //添加入文件
             xn.AppendChild(xelKey);
             xmlDoc.Save(path);
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((Util.pause)&&(Util.start))
+            {
+                Util.pause = false;
+            }
         }
     }
 }

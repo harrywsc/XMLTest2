@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Btn_SelectData = new System.Windows.Forms.Button();
             this.Btn_SelectXML = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.lb_CashInfoDir = new System.Windows.Forms.Label();
             this.Btn_AddCashInfo = new System.Windows.Forms.Button();
             this.Btn_UpdateCashInfo = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Btn_SelectData
@@ -91,6 +93,7 @@
             // 
             // Btn_Stop
             // 
+            this.Btn_Stop.Enabled = false;
             this.Btn_Stop.Location = new System.Drawing.Point(179, 252);
             this.Btn_Stop.Name = "Btn_Stop";
             this.Btn_Stop.Size = new System.Drawing.Size(75, 23);
@@ -138,6 +141,12 @@
             this.Btn_UpdateCashInfo.UseVisualStyleBackColor = true;
             this.Btn_UpdateCashInfo.Click += new System.EventHandler(this.Btn_UpdateCashInfo_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 600000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -173,6 +182,7 @@
         private System.Windows.Forms.Label lb_CashInfoDir;
         private System.Windows.Forms.Button Btn_AddCashInfo;
         private System.Windows.Forms.Button Btn_UpdateCashInfo;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

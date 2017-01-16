@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- 该版本配置文件仅以黔南中支发行库数据配置，其他版本货币对应关系，需要另外补充。在程序处理时，如果包、箱、捆的配置文件不存在，则直接显示总额，不进行分类。 -->
 <cashlist>
   <cash>
     <type>纸100元（5套）</type>
@@ -304,6 +305,7 @@
     <bundle>10</bundle>
     <bag>400</bag>
   </cash>
+  <!-- 发行基金和纪念币的华丽丽的分割线 -->
   <cash>
     <type>青城山币（硬5元）</type>
     <label>
@@ -546,21 +548,5 @@
     <box>0</box>
     <bundle>0</bundle>
     <bag>0</bag>
-  </cash>
-  <cash>
-    <type>纸100元（2015版）</type>
-    <label>纸100元（2015版）</label>
-    <version>5套</version>
-    <box>2000000</box>
-    <bundle>100000</bundle>
-    <bag>2000000</bag>
-  </cash>
-  <cash>
-    <type>2015年贺岁币-10元</type>
-    <label>2015年贺岁币-10元</label>
-    <version>纪念币</version>
-    <box>20000</box>
-    <bundle>2000</bundle>
-    <bag>20000</bag>
   </cash>
 </cashlist>

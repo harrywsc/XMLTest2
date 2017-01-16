@@ -30,6 +30,7 @@ namespace XMLTest2
                 
             }
             cb_Cash.DisplayMember = "Type";
+            cb_Cash.SelectedIndex = 0;
         }
 
 
@@ -102,7 +103,9 @@ namespace XMLTest2
 
                 }
             }
+            reader.Close();
             xmlDoc.Save(path);
+            MessageBox.Show("修改成功!");
         }
     }
 }
